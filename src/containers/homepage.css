@@ -1,0 +1,40 @@
+.main-container{
+    width: 100%;
+    height: 100%;
+}
+
+.header-container{
+    width: 100%;
+    height: 35px;
+    background-color: #ecf1f9;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.header-container span{
+    float: left;
+    margin-left: 16px;
+    font-size: 13px;
+    line-height: 18.5px;
+    color: #06aee6;
+    display: flex;
+}
+
+.header-container span::before{
+    content: "";
+    background-image: url('../images/checkin-icon.png');
+    background-size: 100% 100%;
+    height: 20px;
+    width: 20px;
+    margin-right: 8px;
+}
+
+.body-container{
+    height: 300px;
+    margin: 10px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

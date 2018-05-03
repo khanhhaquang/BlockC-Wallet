@@ -2,4 +2,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f9;
+  height: 100%;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+#root{
+  min-width: 980px;
+  height: 100%;
 }

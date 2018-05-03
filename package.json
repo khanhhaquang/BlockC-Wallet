@@ -1,5 +1,5 @@
 {
-  "name": "rollup",
+  "name": "Wallet",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -31,9 +31,11 @@
     "clean-webpack-plugin": "^0.1.18",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.0.4",
+    "react-router-dom": "^4.2.2",
     "uglifyjs-webpack-plugin": "^1.2.2",
     "url-loader": "^0.6.2",
     "webpack": "^4.0.1",
+    "webpack-cli": "^2.1.2",
     "webpack-dev-server": "^3.1.0",
     "webpack-merge": "^4.1.2"
   }

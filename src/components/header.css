@@ -1,0 +1,109 @@
+.header-wrapper{
+  overflow: hidden;
+  background: #0e75ee;
+  padding: 0;
+  height: 56px;
+  line-height: 56px;
+}
+.header-room{
+  position: fixed;
+  width: 100%;
+}
+
+.header-wrapper .headroom-wrapper {
+  max-width: 1140px;
+  position: relative;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+}
+
+.nav-wrapper{
+  display: flex;
+  align-items: center;
+}
+.nav-wrapper .wallet-logo-wrapper{
+  line-height: 0;
+  margin: 0 16px 0 0;
+}
+.nav-wrapper .wallet-logo-wrapper .logo{
+  background-image: url(../images/logo.png);
+  background-size: 100% 100%;
+  width: 100px;
+  height: 30px;
+}
+.nav-wrapper ul{
+  display: flex;
+  height: 100%;
+  list-style-type: none;
+  border: none;
+  background: transparent;
+  margin: 0 16px;
+  font-size: 15px;
+  padding: 0;
+}
+.nav-wrapper li{
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer
+}
+
+.nav-wrapper li:focus{
+  transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.nav-wrapper ul li .item{
+  position: relative;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 56px;
+  height: 100%;
+  display: block;
+  padding: 0 16px;
+}
+
+.nav-wrapper ul .selected-item .item::after{
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 4px;
+  bottom: 8px;
+  border-radius: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  left: 50%;
+  margin-left: -2px;
+}
+
+.account-control-wrapper{
+  position: absolute;
+  height: 56px;
+  line-height: 56px;
+  right: 0;
+}
+.account-control-wrapper button{
+  margin: auto 8px auto 0;
+  padding: 0 12px;
+  display: inline-block;
+  height: 30px;
+  line-height: 28px;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  background: transparent;
+  font-size: inherit;
+}
+a {
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+}
+#login-btn{
+  color: #0e75ee;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1)
+}
+
+#signup-btn{
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.8)
+}

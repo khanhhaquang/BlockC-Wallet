@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './homepage.css';
 
-class HomePage extends Component {
+class Assets extends Component {
     constructor(props){
       super(props);
       this.state = {
@@ -10,12 +10,12 @@ class HomePage extends Component {
     }
     render() {
         return(
-          <div className="home-container">
-            Home Page
+          <div className="assets-container">
+            Assets Page
           </div>
       )
     }
 
 }
 
-export default HomePage;
+export default Assets;

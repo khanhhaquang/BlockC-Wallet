@@ -1,0 +1,96 @@
+.home-container{
+
+}
+
+.banner-container{
+    height: 300px;
+    background: #1A1F27;
+    overflow: hidden;
+    position: relative;
+    min-height: 100px;
+}
+
+.banner-container .banner-anim-element{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.banner-img{
+    background-image: url(https://assets.kucoin.com/www/1.6.15/pc/static/Vote_banner_en.c7195a2a.png);
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 300px;
+    width: 100%;
+}
+
+#ads-container{
+    padding: 24px 0;
+    background: white;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+    background-clip: padding-box;
+    z-index: 1;
+}
+
+#ads-container .ads , #coins-container .coins{
+    margin-left: 4.16666667%
+}
+
+.ads .ads-wrapper, .coins .coins-wrapper{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.ads .ads-wrapper .ads-box{
+    display: block;
+    cursor: pointer;
+}
+
+.ads-box .ads-img{
+    position: relative;
+    height: 140px;
+    background-position: 50%, 50%;
+    background-size: cover;
+}
+
+.ads-box .ads-img .title{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    padding: 16px 8px 8px 8px;
+    background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.7)), to(transparent));
+    background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.7), transparent);
+    background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.7), transparent);
+    background: linear-gradient(bottom, rgba(0, 0, 0, 0.7), transparent);
+    overflow: hidden;
+    line-height: 1.3;
+    font-weight: bold;
+}
+.ads-box .ads-img .title span{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+#coins-container{
+    padding-top: 30px;
+    background: #f6f6f6;
+}
+
+#coins-container .coins .card{
+    position: relative;
+    height: 160px;
+    padding: 15px 17px;
+    background: #fff;
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    margin-bottom: 30px;
+}

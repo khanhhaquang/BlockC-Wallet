@@ -1,0 +1,21 @@
+.bar-wrapper{
+    width: 100%;
+}
+
+.bar-wrapper .bar{
+    margin: 0 auto;
+    max-width: 1140px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: inherit;
+}
+
+.bar-wrapper .bar .barStart{
+    
+}
+
+.bar-wrapper .bar .barEnd{
+
+}

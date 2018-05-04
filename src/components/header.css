@@ -4,35 +4,41 @@
   padding: 0;
   height: 56px;
   line-height: 56px;
+
 }
-.header-room{
+.header-wrapper .header-room{
   position: fixed;
   width: 100%;
+  z-index: 1000;
 }
 
 .header-wrapper .headroom-wrapper {
   max-width: 1140px;
   position: relative;
+  zoom: 1;
   margin: 0 auto;
   height: 100%;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
 }
 
-.nav-wrapper{
+.header-wrapper .nav-wrapper{
   display: flex;
   align-items: center;
 }
-.nav-wrapper .wallet-logo-wrapper{
+.header-wrapper .nav-wrapper .wallet-logo-wrapper{
   line-height: 0;
   margin: 0 16px 0 0;
 }
-.nav-wrapper .wallet-logo-wrapper .logo{
-  background-image: url(../images/logo.png);
+.header-wrapper .nav-wrapper .wallet-logo-wrapper .logo{
+  background-image: url(https://assets.kucoin.com/www/1.6.15/pc/static/logo_v.1.0.a0267de6.svg);
   background-size: 100% 100%;
   width: 100px;
   height: 30px;
 }
-.nav-wrapper ul{
+.header-wrapper .nav-wrapper ul{
   display: flex;
   height: 100%;
   list-style-type: none;
@@ -42,18 +48,18 @@
   font-size: 15px;
   padding: 0;
 }
-.nav-wrapper li{
+.header-wrapper .nav-wrapper li{
   border: none;
   margin: 0;
   padding: 0;
   cursor: pointer
 }
 
-.nav-wrapper li:focus{
+.header-wrapper .nav-wrapper li:focus{
   transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.nav-wrapper ul li .item{
+.header-wrapper .nav-wrapper ul li .item{
   position: relative;
   color: rgba(255, 255, 255, 0.9);
   line-height: 56px;
@@ -62,7 +68,7 @@
   padding: 0 16px;
 }
 
-.nav-wrapper ul .selected-item .item::after{
+.header-wrapper .nav-wrapper ul .selected-item .item::after{
   content: "";
   position: absolute;
   height: 4px;
@@ -74,14 +80,14 @@
   margin-left: -2px;
 }
 
-.account-control-wrapper{
+.header-wrapper .account-control-wrapper{
   position: absolute;
   height: 56px;
   line-height: 56px;
   right: 0;
 }
-.account-control-wrapper button{
-  margin: auto 8px auto 0;
+.header-wrapper .account-control-wrapper button{
+  margin: auto 0;
   padding: 0 12px;
   display: inline-block;
   height: 30px;
@@ -97,13 +103,14 @@ a {
   text-decoration: none;
   outline: none;
 }
-#login-btn{
+.header-wrapper #login-btn{
+  margin-right: 8px;
   color: #0e75ee;
   background: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.1)
 }
 
-#signup-btn{
+.header-wrapper #signup-btn{
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.8)
 }

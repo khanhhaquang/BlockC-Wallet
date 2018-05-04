@@ -83,7 +83,7 @@
     background: #f6f6f6;
 }
 
-#coins-container .coins .card{
+.coins-wrapper .card{
     position: relative;
     height: 160px;
     padding: 15px 17px;
@@ -93,4 +93,8 @@
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     margin-bottom: 30px;
+}
+
+.coins-wrapper .card .name{
+    margin-bottom: 12px;
 }

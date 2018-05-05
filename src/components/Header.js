@@ -16,7 +16,8 @@ export default class Header extends Component{
   constructor(props){
     super(props);
     this.state = {
-        headroomState: "headroom--unfixed",
+        headbackground: "#0e75ee",
+        scrollTop: 0,
         selectedItem: 0
     }
   }
@@ -27,7 +28,7 @@ export default class Header extends Component{
     })
   }
 
-  renderNavTabs=()=>
+  renderNavTabs = () =>
     tabs.map((value,index)=>{
         return (
             <li className={index === this.state.selectedItem ? "selected-item" : "unselected-item"} key={index}>
@@ -36,12 +37,29 @@ export default class Header extends Component{
         )
   })
 
+  handleScroll = () => {
+      let scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
+      console.log(scrollTop)
+      this.setState({
+
+      });
+  }
+
+  componentDidMount(){
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount(){
+      window.removeEventListener('scroll', this.handleScroll);
+  }
+
+
   render() {
       return(
           <div className="header-wrapper">
-              <div className="header-room" style={{height: '56px'}}>
+              <div className="header-room" style={{height: '56px', backgroundColor: this.state.headbackground}}>
                 <div className="headroom-wrapper">
-                    <div className="nav-wrapper">
+                    <div className="header-nav">
                       <h1 className="wallet-logo-wrapper">
                         <a href="/"><div className="logo"></div></a>
                       </h1>

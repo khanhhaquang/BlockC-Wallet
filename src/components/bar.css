@@ -1,5 +1,12 @@
 .bar-wrapper{
-    width: 100%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    background: #fff;
+    -webkit-box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+    background-clip: padding-box;
 }
 
 .bar-wrapper .bar{
@@ -13,7 +20,7 @@
 }
 
 .bar-wrapper .bar .barStart{
-    
+
 }
 
 .bar-wrapper .bar .barEnd{

@@ -1,6 +1,5 @@
 .header-wrapper{
   overflow: hidden;
-  background: #0e75ee;
   padding: 0;
   height: 56px;
   line-height: 56px;
@@ -24,21 +23,21 @@
   color: #fff;
 }
 
-.header-wrapper .nav-wrapper{
+.header-wrapper .header-nav{
   display: flex;
   align-items: center;
 }
-.header-wrapper .nav-wrapper .wallet-logo-wrapper{
+.header-wrapper .header-nav .wallet-logo-wrapper{
   line-height: 0;
   margin: 0 16px 0 0;
 }
-.header-wrapper .nav-wrapper .wallet-logo-wrapper .logo{
+.header-wrapper .header-nav .wallet-logo-wrapper .logo{
   background-image: url(https://assets.kucoin.com/www/1.6.15/pc/static/logo_v.1.0.a0267de6.svg);
   background-size: 100% 100%;
   width: 100px;
   height: 30px;
 }
-.header-wrapper .nav-wrapper ul{
+.header-wrapper .header-nav ul{
   display: flex;
   height: 100%;
   list-style-type: none;
@@ -48,18 +47,17 @@
   font-size: 15px;
   padding: 0;
 }
-.header-wrapper .nav-wrapper li{
+.header-wrapper .header-nav li{
   border: none;
   margin: 0;
   padding: 0;
   cursor: pointer
 }
 
-.header-wrapper .nav-wrapper li:focus{
-  transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+.header-wrapper .header-nav li:focus{
 }
 
-.header-wrapper .nav-wrapper ul li .item{
+.header-wrapper .header-nav ul li .item{
   position: relative;
   color: rgba(255, 255, 255, 0.9);
   line-height: 56px;
@@ -68,7 +66,7 @@
   padding: 0 16px;
 }
 
-.header-wrapper .nav-wrapper ul .selected-item .item::after{
+.header-wrapper .header-nav ul .selected-item .item::after{
   content: "";
   position: absolute;
   height: 4px;
@@ -98,11 +96,8 @@
   background: transparent;
   font-size: inherit;
 }
-a {
-  background: transparent;
-  text-decoration: none;
-  outline: none;
-}
+
+
 .header-wrapper #login-btn{
   margin-right: 8px;
   color: #0e75ee;

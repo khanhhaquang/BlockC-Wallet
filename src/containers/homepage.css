@@ -34,11 +34,11 @@
     z-index: 1;
 }
 
-#ads-container .ads , #coins-container .coins{
+#ads-container .ads , #coins-container .coins, #advantage-container .advantage{
     margin-left: 4.16666667%
 }
 
-.ads .ads-wrapper, .coins .coins-wrapper{
+.ads .ads-wrapper, .coins .coins-wrapper, .advantage .advantage-wrapper{
     max-width: 1140px;
     margin: 0 auto;
 }
@@ -83,7 +83,13 @@
     background: #f6f6f6;
 }
 
-.coins-wrapper .card{
+#coins-container{
+
+}
+#coins-container .coins-wrapper .coins-box{
+    cursor: pointer;
+}
+#coins-container .coins-wrapper .card{
     position: relative;
     height: 160px;
     padding: 15px 17px;
@@ -95,6 +101,164 @@
     margin-bottom: 30px;
 }
 
-.coins-wrapper .card .name{
+#coins-container .coins-wrapper .card #price-wrapper .price{
+    font-size: 16px;
+}
+#coins-container .coins-wrapper .card #price-wrapper {
+    position: relative;
+}
+
+#coins-container .coins-wrapper .card #price-wrapper:hover .tooltiptextTop{
+    opacity: 1;
+    visibility: visible;
+}
+
+#coins-container .coins-wrapper .card .trending{
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    bottom: 0;
+}
+
+#advantage-container .advantage-wrapper .advantageTitle{
+    color: #333;
+    font-size: 16px;
     margin-bottom: 12px;
+    font-weight: bold;
+}
+
+#advantage-container .advantage-wrapper .advantageTitle img{
+    margin-right: 12px;
+    width: 28px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#advantage-container .advantage-wrapper ul li{
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+#advantage-container .advantage-wrapper ul li a{
+    color: #333333
+}
+
+#advantage-container .advantage-wrapper ul li a:hover{
+    color: #007bff
+}
+#volume-container{
+    background: url(https://assets.kucoin.com/www/1.6.15/pc/static/w-line.3980064b.svg) #0e75ee 50% / cover;
+    color: white;
+}
+
+#volume-container .inner{
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+}
+#volume-container .inner .title{
+    margin-right: 12px;
+}
+
+#volume-container .inner .num{
+    font-size: 24px;
+    margin-right: 12px;
+}
+
+.footer-container{
+    padding: 0;
+    z-index: 1;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 14px;
+}
+
+.footer-container .footer{
+    background: #0d263f;
+    -webkit-font-smoothing: antialiased;
+}
+
+.footer-container .footer-wrapper{
+    max-width: 1140px;
+    margin: auto;
+    padding: 32px 0;
+    display: flex;
+}
+
+.footer-container .footer-wrapper .footerCol{
+    margin: 0 64px 0 0;
+    color: #5f6a72;
+}
+
+.footer-container .footer-wrapper .footerCol .footerTitle{
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 12px;
+
+}
+
+.footerCol a {
+    color: #5f6a72;
+    text-decoration: none;
+}
+.footerCol p {
+    margin-bottom: 8px;
+}
+.footer-wrapper .socialItem{
+    margin: 0 12px;
+    -webkit-filter: saturate(0.5);
+    filter: saturate(0.5);
+    position: relative;
+}
+
+.footer-wrapper .socialItem:hover .tooltiptextBottom{
+    opacity: 1;
+    visibility: visible;
+}
+
+.footer-wrapper .socialItem img{
+    border-style: none;
+    height: 24px;
+    width: auto;
+}
+
+.footer-wrapper .download{
+    margin-top: 24px;
+    margin-left: 12px;
+}
+.footer-wrapper .download .title{
+    color: #5f6a72;
+    margin-bottom: 8px;
+}
+
+.footer-wrapper .download .mobile{
+    border: 2px solid #5C6D7E;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: top;
+    height: 50px;
+    line-height: 46px;
+    text-align: center;
+    padding: 0 12px;
+}
+
+.footer-wrapper .download .mobile .text{
+    display: inline-block;
+    vertical-align: middle;
+    color: #5C6D7E;
+    font-weight: 700;
+}
+.footer-container .copyright{
+    color: #5f6a72;
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.16);
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 300;
+}
+
+.footer-container .copyright .copyright-wrapper{
+    max-width: 1140px;
+    margin: auto;
 }

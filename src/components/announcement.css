@@ -27,6 +27,12 @@
     float: left;
     flex: 0 0 auto;
 }
+.announcement-wrapper .row-flex .item a{
+    color: rgba(0, 0, 0)
+}
+.announcement-wrapper .row-flex .item a:hover{
+    color: #0e75ee
+}
 
 .announcement-wrapper .row-flex .item .item-wrapper{
     display: flex;

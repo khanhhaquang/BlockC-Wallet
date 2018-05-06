@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import './header.css';
 import { Link } from "react-router-dom";
+import HeaderCoin from './stateless/HeaderCoin.js'
 
 const tabs = [
   "Home",
@@ -17,6 +18,7 @@ export default class Header extends Component{
     super(props);
     this.state = {
         headbackground: "#0e75ee",
+        headRoomState: "headroom-unfixed",
         scrollTop: 0,
         selectedItem: 0
     }
@@ -32,17 +34,33 @@ export default class Header extends Component{
     tabs.map((value,index)=>{
         return (
             <li className={index === this.state.selectedItem ? "selected-item" : "unselected-item"} key={index}>
-                <Link to={value === "Home" ? "/" : "/"+ value}><a onClick={() => this.selectItem(index)}><div className="item">{value}</div></a></Link>
+                <Link to={value === "Home" ? "/" : "/"+ value}><div className="item" onClick={() => this.selectItem(index)}>{value}</div></Link>
             </li>
         )
   })
 
   handleScroll = () => {
       let scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
-      console.log(scrollTop)
-      this.setState({
+      const currentscrollTop = this.state.scrollTop;
+      if(scrollTop > currentscrollTop && scrollTop > 56)
+        this.setState({
+          scrollTop: scrollTop,
+          headbackground: "#35425b",
+          headRoomState: "headroom-unpinned",
+        });
 
-      });
+      if(scrollTop < currentscrollTop)
+          this.setState({
+            scrollTop: scrollTop,
+            headbackground: "#0e75ee",
+            headRoomState: "headroom-pinned",
+          });
+
+      if(scrollTop === 0)
+          this.setState({
+            scrollTop: 0,
+            headRoomState: "headroom-unfixed"
+          })
   }
 
   componentDidMount(){
@@ -57,20 +75,40 @@ export default class Header extends Component{
   render() {
       return(
           <div className="header-wrapper">
-              <div className="header-room" style={{height: '56px', backgroundColor: this.state.headbackground}}>
-                <div className="headroom-wrapper">
-                    <div className="header-nav">
-                      <h1 className="wallet-logo-wrapper">
-                        <a href="/"><div className="logo"></div></a>
-                      </h1>
-                      <ul>
-                        {this.renderNavTabs()}
-                      </ul>
+              <div className="header-room">
+                <div className={"headroom-wrapper " + this.state.headRoomState}  style={{backgroundColor: this.state.headbackground}}>
+
+                  <div className="headerRow flex-row">
+                    <div className="headerInner">
+                      <div className="headerStart">
+
+                        <div className="header-nav">
+                          <h1 className="logo-wrapper">
+                            <Link to="/"><img src="https://assets.kucoin.com/www/1.6.16/pc/static/logo_v.1.0.a0267de6.svg" alt="kucoin.com"/></Link>
+                          </h1>
+                          <ul>
+                            {this.renderNavTabs()}
+                          </ul>
+                        </div>
+
+                        <div className="header-coins">
+                          <HeaderCoin name="BTC" price={9610.5} />
+                          <HeaderCoin name="ETH" price={781.23} />
+                          <HeaderCoin name="NEO" price={82.25} />
+                          <HeaderCoin name="USDT" price={1} />
+                        </div>
+
+                      </div>
+
+                      <div className="account-control-wrapper">
+                        <div>
+                          <Link to="/login"><button id="login-btn">Log in</button></Link>
+                          <Link to="/signup"><button id="signup-btn">Sign up</button></Link>
+                        </div>
+                      </div>
                     </div>
-                    <div className="account-control-wrapper">
-                      <Link to="/login"><a><button id="login-btn">Log in</button></a></Link>
-                      <Link to="/signup"><a><button id="signup-btn">Sign up</button></a></Link>
-                    </div>
+                  </div>
+
                 </div>
               </div>
           </div>

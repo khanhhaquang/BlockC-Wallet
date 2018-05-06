@@ -1,57 +1,160 @@
 .header-wrapper{
   overflow: hidden;
+  background: #0e75ee;
   padding: 0;
   height: 56px;
   line-height: 56px;
-
+  flex: 0 0 auto;
 }
 .header-wrapper .header-room{
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
+  height: 56px;
 }
 
 .header-wrapper .headroom-wrapper {
-  max-width: 1140px;
-  position: relative;
-  zoom: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  height: 56px;
+  line-height: 56px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(0%);
+  z-index: 1000;
+  transition: background-color 0.2s ease-out;
+}
+
+.header-wrapper .headroom-unfixed{
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.header-wrapper .headroom-unpinned{
+  top: 0;
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
+}
+.header-wrapper .headroom-pinned{
+  top: 0;
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
+}
+
+.headroom-unpinned .header-nav{
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+  opacity: 0;
+}
+
+.headroom-unpinned .header-coins{
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  opacity: 1;
+}
+
+.header-wrapper .headroom-wrapper .headerRow{
   margin: 0 auto;
-  height: 100%;
+  max-width: 1140px;
+}
+
+.header-wrapper .headroom-wrapper .headerRow .headerInner{
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
   align-items: center;
   color: #fff;
 }
+.header-wrapper .headroom-wrapper .headerStart{
+  position: relative;
+  overflow: hidden;
+  -webkit-box-flex: 1;
+  -ms-flex: auto;
+  flex: auto;
+}
 
-.header-wrapper .header-nav{
+.header-wrapper .headerStart .header-nav{
   display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  transition: all .3s;
+}
+
+.header-coins{
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  transform: translate3d(0, -100%, 0);
+  transition: all .3s;
+  -webkit-font-smoothing: antialiased;
+}
+
+.header-coins .headerCoin{
+  position: relative;
+  padding-right: 32px;
+  margin-right: 32px;
+  line-height: 1.4em;
+}
+.header-coins .headerCoin:after{
+    content: "";
+    position: absolute;
+    width: 1px;
+    right: 0;
+    top: 8px;
+    bottom: 8px;
+    background: rgba(255, 255, 255, 0.1);
+}
+.header-coins .headerCoin .headerCoinTop{
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   align-items: center;
 }
-.header-wrapper .header-nav .wallet-logo-wrapper{
+.header-coins .headerCoin .headerCoinMain{
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.header-wrapper .header-nav .logo-wrapper{
   line-height: 0;
   margin: 0 16px 0 0;
 }
-.header-wrapper .header-nav .wallet-logo-wrapper .logo{
-  background-image: url(https://assets.kucoin.com/www/1.6.15/pc/static/logo_v.1.0.a0267de6.svg);
-  background-size: 100% 100%;
-  width: 100px;
-  height: 30px;
+.header-wrapper .header-nav .logo-wrapper img{
+  height: 26px;
 }
 .header-wrapper .header-nav ul{
   display: flex;
-  height: 100%;
-  list-style-type: none;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   border: none;
   background: transparent;
   margin: 0 16px;
   font-size: 15px;
-  padding: 0;
 }
 .header-wrapper .header-nav li{
   border: none;
   margin: 0;
   padding: 0;
-  cursor: pointer
+  cursor: pointer;
+  position: relative;
+  top: 1px;
+  float: left;
 }
 
 .header-wrapper .header-nav li:focus{
@@ -61,11 +164,13 @@
   position: relative;
   color: rgba(255, 255, 255, 0.9);
   line-height: 56px;
-  height: 100%;
+  height: 56px;
   display: block;
   padding: 0 16px;
 }
-
+.header-wrapper .header-nav ul .selected-item item{
+  color: #fff
+}
 .header-wrapper .header-nav ul .selected-item .item::after{
   content: "";
   position: absolute;
@@ -79,10 +184,16 @@
 }
 
 .header-wrapper .account-control-wrapper{
-  position: absolute;
-  height: 56px;
-  line-height: 56px;
-  right: 0;
+    height: 56px;
+    line-height: 56px;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #fff;
 }
 .header-wrapper .account-control-wrapper button{
   margin: auto 0;

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import './announcement.css';
 import { Link } from "react-router-dom";
-
 const announcement = [
     "fasfasdhfkasdfk",
     "shfkadflsjhasfsdf",
@@ -21,14 +20,16 @@ export default class Announcement extends Component{
         announcement.map((value,index)=>{
             return(
                 <div key={index} className="item col-4" style={{paddingLeft: "12px",paddingRight: "12px"}}>
-                    <div className="item-wrapper">
-                        <div className="itemStart">
-                            {value}
-                        </div>
-                        <div className="itemEnd">
-                            (05-03)
-                        </div>
-                    </div>
+                  <Link to="/">
+                      <div className="item-wrapper">
+                          <div className="itemStart">
+                              {value}
+                          </div>
+                          <div className="itemEnd">
+                              (05-03)
+                          </div>
+                      </div>
+                  </Link>
                 </div>
             )
         })

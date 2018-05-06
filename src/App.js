@@ -15,16 +15,16 @@ import {Switch,Route} from 'react-router-dom';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App layout">
         <Header/>
         <Bar/>
         <Announcement/>
-        
+
         <div className="main-container">
           <Switch>
-            <Route exact path='/' component={HomePage}/>
+            <Route exact path='/' component={Markets}/>
             <Route path='/Assets' component={Assets}/>
-            <Route path='/Markets' component={Markets}/>
+            // <Route path='/Markets' component={Markets}/>
           </Switch>
         </div>
       </div>

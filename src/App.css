@@ -5,6 +5,12 @@
     width: 100%;
 }
 
+.layout-content {
+    -webkit-box-flex: 1;
+    -ms-flex: auto;
+    flex: auto;
+}
+
 .layout{
     display: flex;
     -webkit-box-orient: vertical;
@@ -28,53 +34,53 @@
 }
 
 .flex-row{
-  position: relative;
-  margin-left: 0;
-  margin-right: 0;
-  height: auto;
-  zoom: 1;
-  display: block;
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    height: auto;
+    zoom: 1;
+    display: block;
 }
 
 .flex-row::before,.flex-row::after{
-  content: " ";
-  display: table;
+    content: " ";
+    display: table;
 }
 
 .flex-row::after {
-  clear: both;
-  visibility: hidden;
-  font-size: 0;
-  height: 0;
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
+    height: 0;
 }
 
 a {
-  background: transparent;
-  text-decoration: none !important;
-  outline: none;
+    background: transparent;
+    text-decoration: none !important;
+    outline: none;
 }
 ul, ol {
     list-style: none;
 }
 
 @media only screen and (max-width: 768px){
-  .offset-halfone{
-    margin-left: 4.16666667%;
-  }
+    .offset-halfone{
+        margin-left: 4.16666667%;
+    }
 }
 
 @media only screen and (min-width: 992px){
 
 }
 .col-3 , .col-4, .col-md-4,.col-lg-4, .col-6,.col-10, .col-md-10,.col-lg-10, .col-11, .col-12, .col-md-12{
-  position: relative;
-  min-height: 1px;
-  padding-left: 0;
-  padding-right: 0;
-  float: left;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
+    position: relative;
+    min-height: 1px;
+    padding-left: 0;
+    padding-right: 0;
+    float: left;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
 }
 /*config global colors*/
 .color-high {
@@ -89,13 +95,21 @@ ul, ol {
 .color-gray {
     color: rgba(0, 0, 0, 0.4);
 }
-
+.color-buy {
+    color: #01aa78;
+}
+.color-sell {
+    color: #ff5f73;
+}
+/*config font size*/
+.font-size-12 {
+    font-size: 12px;
+}
 
 /*config global margin*/
 .mr-12{
     margin-right: 12px;
 }
-
 .ml-12 {
     margin-left: 12px;
 }
@@ -105,11 +119,15 @@ ul, ol {
 .mr-6 {
     margin-right: 6px;
 }
-
+.ml-6 {
+    margin-left: 6px;
+}
 .mr-4 {
     margin-right: 4px;
 }
-
+.ml-4 {
+    margin-left: 4px;
+}
 .pull-right {
     float: right;
 }

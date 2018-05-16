@@ -8,10 +8,11 @@ body {
   font-size: 14px;
   overflow-x: hidden;
 }
-
+html, body, #root {
+  height: 100%;
+}
 #root{
   min-width: 980px;
-  height: 100%;
 }
 
 h1 {
@@ -25,4 +26,8 @@ div , ul{
 
 input[type= "search"]{
   border-sizing: border-box;
+}
+
+.table td, .table th {
+  border-top: none
 }

@@ -2,10 +2,33 @@ import React, { Component } from 'react';
 import './markets.css';
 import SidebarItem from '../components/stateless/SidebarItem.js'
 
+
+
 const coinTabs = [
-  "BTC",
-  "ETH",
-  "USDT"
+  {
+    keyCoin: "BTC",
+    subCoins:[
+      {
+        name: "KCS"
+      }
+    ]
+  },
+  {
+    keyCoin: "ETH",
+    subCoins:[
+      {
+        name: "KCS"
+      }
+    ]
+  },
+  {
+    keyCoin: "KCS",
+    subCoins:[
+      {
+        name: "KCS"
+      }
+    ]
+  }
 ]
 
 const tableSortHeaders = [
@@ -43,8 +66,8 @@ class Markets extends Component {
         <th className="">
           <span>{value}
             <div className="table-column-sorter">
-              <span className="table-column-sorter-up off" title="↑"><i class="material-icons iconCaretUp"></i></span>
-              <span className="table-column-sorter-down off" title="↓"><i class="material-icons iconCaretDown"></i></span>
+              <span className="table-column-sorter-up off" title="↑"><i class="fas fa-caret-up sorticon iconCaretUp"></i></span>
+              <span className="table-column-sorter-down off" title="↓"><i class="fas fa-caret-down sorticon iconCaretDown"></i></span>
             </div>
           </span>
         </th>
@@ -58,7 +81,7 @@ class Markets extends Component {
     }
     renderCoinTabs = () => coinTabs.map((value,index)=>{
       return(
-        <div onClick = {() => this.handleClickTab(index)} key={index} role="tab" aria-disabled="false" aria-selected={this.state.coinTab === index ? "true" : "false"} className={this.state.coinTab === index ?"tabs-tab-active tabs-tab" : "tabs-tab"}>{value}</div>
+        <div onClick = {() => this.handleClickTab(index)} key={index} role="tab" aria-disabled="false" aria-selected={this.state.coinTab === index ? "true" : "false"} className={this.state.coinTab === index ?"tabs-tab-active tabs-tab" : "tabs-tab"}>{value.keyCoin}</div>
       )
     })
 
@@ -164,7 +187,7 @@ class Markets extends Component {
 
                             <div className="tabs-content tabs-content-no-animated">
                               <div role="tabpanel" aria-hidden="false" className="tabs-tabpane tabs-tabpane-active">
-                                <div className="table-wrapper table">
+                                <div className="table-wrapper table_1">
                                   <div className="spin-nested-loading">
                                     <div className="spin-container">
                                       <div className="table table-middle table-scroll-position-left">
@@ -187,7 +210,80 @@ class Markets extends Component {
                                                   </th>
                                                 </tr>
                                               </thead>
-                                              <tbody className="table-tbody"></tbody>
+                                              <tbody className="table-tbody">
+                                                <tr className="table-row  table-row-level-0">
+                                                  <td className="">
+                                                    <span className="table-row-indent indent-level-0" style={{paddingLeft: "0px"}}></span>
+                                                    <div className="tdHeadBox">
+                                                      <i className="dealTop"></i>
+                                                      <div className="cursor" style={{lineHeight: "22px", display: "inline-block"}}>
+                                                        <img src="https://assets.kucoin.com/www/coin/pc/KCS.png" style={{width: "22px", height: "22px", float: "left", marginRight: "4px"}}/>
+                                                        <span>KCS/BTC</span>
+                                                        {'\u00A0'}
+                                                        <span className="color-gray"></span>
+                                                      </div>
+                                                    </div>
+                                                  </td>
+                                                  <td className="">
+                                                    <div>
+                                                      <span className="changingWrapper">
+                                                        <span >
+                                                          <span>
+                                                            <span>0.00737511</span>
+                                                            <span style={{opacity: "0.4"}}></span>
+                                                          </span>
+                                                        </span>
+                                                        <span className="changingIcon left"></span>
+                                                      </span>
+                                                      <span className="ml-4 color-primary font-size-12">
+                                                        <span>$</span>
+                                                        <span>3.57</span>
+                                                      </span>
+                                                    </div>
+                                                  </td>
+                                                  <td className="">
+                                                    <span className="color-high">
+                                                    {"+" + "0.95" + "%"}
+                                                    </span>
+                                                  </td>
+                                                  <td className="">
+                                                    <div>
+                                                      <span>
+                                                        <span>
+                                                          <span>2,952.3576872</span>
+                                                          <span style={{opacity: "0.4"}}>0</span>
+                                                        </span>
+                                                      </span>
+                                                    </div>
+                                                  </td>
+                                                  <td className="">
+                                                    <div>
+                                                      <span>
+                                                        <span>
+                                                          <span>2,952.3576872</span>
+                                                          <span style={{opacity: "0.4"}}>0</span>
+                                                        </span>
+                                                      </span>
+                                                    </div>
+                                                  </td>
+                                                  <td className="">
+                                                    <div>
+                                                      <span>
+                                                        <span className="color-buy cursor" style={{marginRight: "8px"}}>Buy</span>
+                                                      </span>
+                                                      <span>
+                                                        <span className="color-sell cursor">Sell</span>
+                                                      </span>
+                                                    </div>
+                                                  </td>
+                                                  <td className="">
+                                                    <div className="operateIcons">
+                                                      <i className="material-icons iconEqualizer"></i>
+                                                      <span><i className="far fa-star"></i></span>
+                                                    </div>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
                                             </table>
                                           </div>
                                         </div>

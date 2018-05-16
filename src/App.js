@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header.js';
 import Announcement from './components/Announcement.js';
 import Bar from './components/Bar.js';
+import Footer from './components/Footer.js';
 
 // import containers
 import Assets from './containers/Assets.js';
@@ -20,13 +21,14 @@ class App extends Component {
         <Bar/>
         <Announcement/>
 
-        <div className="main-container">
+        <div className="main-container layout-content">
           <Switch>
             <Route exact path='/' component={Markets}/>
             <Route path='/Assets' component={Assets}/>
-            <Route path='/Markets' component={Markets}/>
+            <Route path='/Markets' component={HomePage}/>
           </Switch>
         </div>
+        <Footer/>
       </div>
     );
   }

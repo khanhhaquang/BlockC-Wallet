@@ -3,7 +3,6 @@ import './homepage.css';
 import AdsBox from '../components/stateless/AdsBox.js';
 import CoinBox from '../components/stateless/CoinBox.js'
 import AdvantageBox from '../components/stateless/AdvantageBox.js'
-import Footer from '../components/stateless/Footer.js'
 
 class HomePage extends Component {
     constructor(props){
@@ -86,24 +85,6 @@ class HomePage extends Component {
                       <span>USD</span>
                     </span>
 
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="footer-container layout-footer">
-              <div className="footer">
-                <Footer/>
-                <div className="copyright">
-                  <div className="flex-row">
-                    <div className="copyright-wrapper">
-                      {"CopyRight © 2017 - 2018 KuCoin Co., Limited. All Rights Reserved."}
-                        <div className="pull-right">
-                        <span style={{marginRight: "4px"}} >Server time</span>
-                        <span style={{marginRight: "4px"}}>(UTC+8)</span>
-                        2018-05-05 21:19:26
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

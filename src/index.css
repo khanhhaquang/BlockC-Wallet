@@ -31,3 +31,18 @@ input[type= "search"]{
 .table td, .table th {
   border-top: none
 }
+
+button, input {
+  overflow: visible;
+}
+button, input, optgroup, select, textarea {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button, html [type="button"], [type="reset"], [type="submit"] {
+  -webkit-appearance: button;
+}
+

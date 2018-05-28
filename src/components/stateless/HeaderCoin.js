@@ -4,10 +4,10 @@ const HeaderCoin = (props) =>{
     return(
         <div className="headerCoin">
             <div className="headerCoinTop">
-              {props.name + "/USD"}
+                {props.name + "/USD"}
             </div>
             <div className="headerCoinMain">
-              {props.price}
+                {props.price}
             </div>
         </div>
     )

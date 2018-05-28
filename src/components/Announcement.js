@@ -20,16 +20,16 @@ export default class Announcement extends Component{
         announcement.map((value,index)=>{
             return(
                 <div key={index} className="item col-4" style={{paddingLeft: "12px",paddingRight: "12px"}}>
-                  <Link to="/">
-                      <div className="item-wrapper">
-                          <div className="itemStart">
-                              {value}
-                          </div>
-                          <div className="itemEnd">
-                              (05-03)
-                          </div>
-                      </div>
-                  </Link>
+                    <Link to="/">
+                        <div className="item-wrapper">
+                            <div className="itemStart">
+                                {value}
+                            </div>
+                            <div className="itemEnd">
+                                (05-03)
+                            </div>
+                        </div>
+                    </Link>
                 </div>
             )
         })

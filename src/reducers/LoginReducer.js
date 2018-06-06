@@ -1,17 +1,17 @@
 const initState = {
-    isLoggingin : false,
-    loggedin : false,
+    isLogging : false,
+    logged : false,
     result: {}
 }
 
 const loginReducer = (state = initState, action) => {
     switch(action.type){
         case "LOGIN":
-            return{...state, isLoggingin: true}
+            return{...state, isLogging: true}
         case "LOGIN_SUCCESS":
-            return{...state, loggedin: true, isLoggingin: false, result: action.data}
+            return{...state, logged: true, isLogging: false, result: action.data}
         case "LOGIN_FAIL":
-            return{...state, loggedin: false, isLoggingin: false};
+            return{...state, logged: false, isLogging: false};
         default:
             return state;
     }

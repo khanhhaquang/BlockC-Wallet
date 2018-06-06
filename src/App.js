@@ -17,6 +17,10 @@ import Markets from './containers/Markets.js';
 
 
 class App extends Component {
+
+  componentWillMount(){
+  }
+
   render() {
     return (
       <Provider store={store}>
@@ -27,9 +31,9 @@ class App extends Component {
 
         <div className="main-container layout-content">
           <Switch>
-            <Route exact path='/' component={Markets}/>
             <Route path='/assets' component={Assets}/>
             <Route path='/markets' component={Markets}/>
+            <Route path='/' component={HomePage}/>          
           </Switch>
         </div>
         <Footer/>

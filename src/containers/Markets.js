@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+
+import {connect} from 'react-redux';
+
 import './markets.css';
 import SidebarItem from '../components/stateless/SidebarItem.js'
-import Slider, { createSliderWithTooltip } from 'rc-slider';
-import Tooltip from 'rc-tooltip';
+import QuickExchange from '../components/QuickExchange.js'
+
+
 import ReactTooltip from 'react-tooltip'
 
 // const SliderWithTooltip = createSliderWithTooltip(Slider);
@@ -83,7 +87,7 @@ var affixStyle = {
   position: "fixed",
   top: "56px",
   width: "50px",
-  left: window.innerWidth > 1140 ? (1 + (window.innerWidth-1140)/2) + "px" : 1 + "px"
+  left: ""
 }
 const divStyle ={
   width: "50px",
@@ -100,16 +104,17 @@ class Markets extends Component {
         coinTab:0,
         affixStyle: {},
         divStyle: {},
-        class: ""
+        class: "",
       }
     }
+
     onSliderChange = (value) => {
       
     }
     
     renderCoinList = () => coinTabs[0].subCoins.map((value,index)=>{
       return(
-          <tr className="table-row  table-row-level-0">
+          <tr key={index} className="table-row  table-row-level-0">
             <td className="">
               <span className="table-row-indent indent-level-0" style={{paddingLeft: "0px"}}></span>
               <div className="tdHeadBox">
@@ -167,13 +172,16 @@ class Markets extends Component {
             <td className="">
               <div>
                 <span>
-                  <span data-tip="" id="buy-span" className="color-buy cursor" style={{marginRight: "8px"}}>Buy</span>
-                  <ReactTooltip className="quickTrade" delayHide={1000} effect='solid' place="bottom" type="none">
-                    {this.renderQuickExchange(index,"Buy")}
+                  <span data-tip="" data-for="buy" id="buy-span" className="color-buy cursor" style={{marginRight: "8px"}}>Buy</span>
+                  <ReactTooltip id="buy" className="quickTrade" delayHide={200} delayShow={200} effect='solid' place="bottom" type="none">
+                    <QuickExchange index={index} type={"Buy"} />
                   </ReactTooltip>
                 </span>
                 <span>
-                  <span id="sell-span" className="color-sell cursor">Sell</span>
+                  <span data-tip="" data-for="sell" id="sell-span" className="color-sell cursor">Sell</span>
+                  <ReactTooltip id="sell" className="quickTrade" delayHide={200} delayShow={200} effect='solid' place="bottom" type="none">
+                    <QuickExchange index={index} type={"Sell"} />
+                  </ReactTooltip>
                 </span>
               </div>
             </td>
@@ -187,106 +195,13 @@ class Markets extends Component {
       )
     })
 
-    renderQuickExchange = (index,type) => {
-      return(
-        <div className="popover overlay popover-placement-bottom">
-          <div className="popover-content">
-            <div className="popover-arrow">
-            </div>
-            <div className="popover-inner">
-              <div>
-                <div className="popover-inner-content">
-                  <form className="form form-horizontal trade">
-                    <div style={{position: "relative",marginBottom: "14px"}}>
-                      <div className="itemTip">
-                        <div className="color-buy font-size-14">{"Buy"}{'\u00A0'}{"KCS"}</div>
-                        <div>Ask<span>{'\u00A0'}<a class="bestPrice">0.08</a>{'\u00A0'}</span></div>
-                      </div>
-                      <div className="flex-row form-item">
-                        <div className="form-item-control-wrapper">
-                          <div className="form-item-control">
-                            <div className="inputNumberWithLabel">
-                              <div className="input-number inputNumber">
-                                <div className="input-number-handler-wrap"></div>
-                                <div className="input-number-input-wrap" role="spinbutton" aria-valuemin="1e-8" aria-valuemax="9007199254740991">
-                                  <input className="input-number-input"  step="0.00000001" min="1e-8" max="9007199254740991" placeholder="Price" autocomplete="off" id="price"/>
-                                </div>
-                              </div>
-                              <div className="inputNumberLabel">BTC</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div style={{position: "relative"}}>
-                      <div className="flex-row form-item">
-                        <div className="form-item-control-wrapper">
-                          <div className="form-item-control">
-                            <div className="inputNumberWithLabel">
-                              <div className="input-number inputNumber">
-                                <div className="input-number-handler-wrap"></div>
-                                <div className="input-number-input-wrap" role="spinbutton" aria-valuemin="1e-7" aria-valuemax="9007199254740991">
-                                  <input className="input-number-input"  step="0.00000001" min="1e-7" max="9007199254740991" placeholder="Amount" autocomplete="off" id="amount"/>
-                                </div>
-                              </div>
-                              <div className="inputNumberLabel">KCS</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="itemTip">
-                        <span className="color-primary">
-                          {"Max"}{'\u00A0'}
-                          <a className="bestPrice">--</a>
-                        </span>
-                        <a className="color-primary">{"Deposit" + " " + "BTC"}</a>
-                      </div>
-                    </div>
-                    <div className="mb-6" style={{position: "relative"}}>
-                      <span className="color-gray">{"Ratio" + ": "}</span>
-                      
-                      <div className="sliderWrapper">
-                        <Slider
-                          min={0}
-                          max={100}
-                          step={25}
-                          onChange={this.onSliderChange}
-                        >
-                        </Slider>
-                      </div>
-                    </div>
-                    <div className="mb-6">
-                      <span className="color-gray">{"Volume"}</span>
-                      {'\u00A0'}
-                      {'\u00A0'}
-                      <span>{0}</span>
-                      {'\u00A0'}
-                      <span>{"BTC"}</span>
-                    </div>
-                    <div className="flex-row form-item" style={{marginBottom: "0px"}}>
-                      <div className="form-item-control-wrapper">
-                        <div className="form-item-control">
-                          <button type="button" className="btn buyBtn btn-lg"><span>Buy</span></button>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    }
-      
-
     renderSortHeaders = () => tableSortHeaders.map((value,index)=>{
       return(
-        <th className="">
+        <th key={index} className="">
           <span>{value}
             <div className="table-column-sorter">
-              <span className="table-column-sorter-up off" title="↑"><i class="fas fa-caret-up sorticon iconCaretUp"></i></span>
-              <span className="table-column-sorter-down off" title="↓"><i class="fas fa-caret-down sorticon iconCaretDown"></i></span>
+              <span className="table-column-sorter-up off" title="↑"><i className="fas fa-caret-up sorticon iconCaretUp"></i></span>
+              <span className="table-column-sorter-down off" title="↓"><i className="fas fa-caret-down sorticon iconCaretDown"></i></span>
             </div>
           </span>
         </th>
@@ -300,16 +215,16 @@ class Markets extends Component {
     }
     renderCoinTabs = () => coinTabs.map((value,index)=>{
       return(
-        <div onClick = {() => this.handleClickTab(index)} key={index} role="tab" aria-disabled="false" aria-selected={this.state.coinTab === index ? "true" : "false"} className={this.state.coinTab === index ?"tabs-tab-active tabs-tab" : "tabs-tab"}>{value.keyCoin}</div>
+        <div key={index} onClick = {() => this.handleClickTab(index)} key={index} role="tab" aria-disabled="false" aria-selected={this.state.coinTab === index ? "true" : "false"} className={this.state.coinTab === index ?"tabs-tab-active tabs-tab" : "tabs-tab"}>{value.keyCoin}</div>
       )
     })
 
     handleResize = () => {
       if(this.state.scrollTop > 116){
-        const windowInnerWidth = window.innerWidth;
-        affixStyle.left = windowInnerWidth > 1140 ? (1 + (windowInnerWidth-1140)/2) + "px" : 1 + "px";
-        console.log(affixStyle)
+        
+        affixStyle.left = window.innerWidth > 1140 ? (1 + (window.innerWidth-1140)/2) + "px" : 1 + "px";
 
+        console.log(affixStyle.left)
         this.setState({
           affixStyle: Object.assign({}, affixStyle)
         })
@@ -319,14 +234,16 @@ class Markets extends Component {
 
     handleScroll = () => {
         let scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
-        if(scrollTop > 116)
+        if(scrollTop > 116){
+          affixStyle.left = window.innerWidth > 1140 ? (1 + (window.innerWidth-1140)/2) + "px" : 1 + "px";
+          if(window.innerWidth > 1875) affixStyle.left = "382.5px"
           this.setState({
             scrollTop: scrollTop,
             affixStyle: Object.assign({}, affixStyle),
             divStyle: divStyle,
             class: "affix"
           });
-
+        }
         if(scrollTop < 116)
             this.setState({
               scrollTop: scrollTop,
@@ -338,12 +255,12 @@ class Markets extends Component {
 
     componentDidMount(){
       window.addEventListener('scroll', this.handleScroll);
-      window.addEventListener("resize", this.handleResize);
+      window.addEventListener('resize', this.handleResize);
     }
 
     componentWillUnmount(){
-        window.removeEventListener('scroll', this.handleScroll);
-        window.removeEventListener("resize", this.handleResize);
+      window.removeEventListener('scroll', this.handleScroll);
+      window.removeEventListener('resize', this.handleResize);
     }
 
     render() {
@@ -454,5 +371,16 @@ class Markets extends Component {
     }
 
 }
+const mapStateToProps = (state) =>{
+  return {
+    isBuying : state.buyData.isBuying,
+    bought : state.buyData.bought,
+    buyData: state.buyData.data,
 
-export default Markets;
+    isSelling : state.buyData.isSelling,
+    sold : state.buyData.sold,
+    sellData: state.buyData.data,
+  }
+}
+
+export default connect(mapStateToProps)(Markets);

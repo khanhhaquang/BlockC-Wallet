@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import * as actions from '../actions/Login.js'
+import {connect} from 'react-redux';
+
 import './homepage.css';
 import AdsBox from '../components/stateless/AdsBox.js';
 import CoinBox from '../components/stateless/CoinBox.js'
@@ -96,4 +99,13 @@ class HomePage extends Component {
 
 }
 
-export default HomePage;
+
+const mapStateToProps = (state) =>{
+  return {
+    isLogging : state.loginData.isLogging,
+    logged : state.loginData.logged,
+    data: state.loginData.result
+  }
+}
+
+export default connect(mapStateToProps)(HomePage);

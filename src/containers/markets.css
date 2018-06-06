@@ -719,7 +719,7 @@
     top: 1px;
     margin-left: -4px;
     border-top-width: 0;
-    border-bottom-color: rgba(217, 217, 217, 0.7);
+    border-bottom-color: #fff;
 }
 .popover-arrow:after {
     border-width: 4px;
@@ -885,9 +885,33 @@ form .input-number {
     height: 32px;
 }
 
-.btn:hover{
-    color: #f7f7f7;
+.sellBtn {
+    width: 100%;
+    color: #ff5f73;
+    background: #f7f7f7;
+}
+
+.sellBtn:hover{
+    color: #f7f7f7 ;
+    background: #ff5f73
+}
+
+.buyBtn:hover{
+    color: #f7f7f7 ;
     background: #01aa78;
+}
+
+.buyBtn {
+    width: 100%;
+    color: #01aa78;
+    background: #f7f7f7;
+}
+
+.btn-lg {
+    padding: 0 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    height: 32px;
 }
 
 .btn, .btn:active, .btn:focus {

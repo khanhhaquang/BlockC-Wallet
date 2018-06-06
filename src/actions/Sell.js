@@ -1,5 +1,4 @@
 import axios from 'axios';
-import {apiUrl} from '../apiConfig.js'
 
 function sellStart(){
     return {type : "SELL"}
@@ -11,30 +10,31 @@ function sellFail(message){
     return {type : "SELL_FAIL", message: message}
 }
 
-export function sell(email,password){
-    const content = {
-        email: email,
-        password: password,
+export function sell(typecoin,coinvalue){
+    const sendData = {
+        user_id: 10,
+        type_coin: typecoin,
+        xu_value: coinvalue
     }
+
+    console.log(sendData)
+
     return dispatch => {
-        dispatch(signinStart())
-        axios.post(apiUrl +'user/signin', {content})
+        dispatch(sellStart())
+        axios.post(API_URL +'xu-to-coin', sendData)
         .then(response => {
-        const data = response.data;
-        if(response && data.user){
+            const data = response.data;
             console.log(data)
-            sessionStorage.email = data.user.email;
-            sessionStorage.address = data.user.address;
-            sessionStorage.isLogged = true;
-            dispatch(signinSuccess(data))
-        }
-        else{
-            dispatch(signinFail(data.msg))
-        }
+
+            if(data.status !== "200")
+                dispatch(sellFail("Something went wrong"))
+            else
+                dispatch(sellSuccess(data))
+
         })
         .catch(error => {
-        console.log(error);
-        dispatch(signinFail("Something went wrong"))
+            console.log(error);
+            dispatch(sellFail("Something went wrong"))
         });
     }
 }

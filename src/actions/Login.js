@@ -1,5 +1,4 @@
 import axios from 'axios';
-import {apiUrl} from '../apiConfig.js'
 
 function loginStart(){
     return {type : "LOGIN"}
@@ -18,7 +17,7 @@ export function login(email,password){
     }
     return dispatch => {
         dispatch(signinStart())
-        axios.post(apiUrl +'user/signin', {content})
+        axios.post(API_URL +'user/signin', {content})
         .then(response => {
         const data = response.data;
         if(response && data.user){

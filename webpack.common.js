@@ -11,6 +11,9 @@ const config = {
             new HtmlWebpackPlugin({
                 title: 'Production',
                 template: 'src/index.html'
+            }),
+            new webpack.DefinePlugin({
+                "API_URL": JSON.stringify("https://powerful-coast-62106.herokuapp.com/api/")
             })
     ],
     module: {
